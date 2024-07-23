@@ -1,0 +1,72 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #d4d4d4;
+}
+
+.cracker-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+ .grid {
+    display: flex;
+    /* 折り返しを有効にする */
+    flex-wrap: wrap; 
+    /* 折り返したいので幅を指定してみる */
+    width: 600px;
+    justify-content: center;
+}
+
+.key {
+    font-size: 20px;
+    border: 3px solid #999;
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;   
+    background-color: #f0f0f0; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 垂直方向に中央揃え */
+}
+
+.choice {
+    background-color: darkkhaki;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding:  10px 20px;
+    font-size: 16px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.label-container {
+    display: flex;
+    /* 縦並びになるらしい */
+    flex-flow: column;
+    /* これあってもなくても変わらない気がする */
+    justify-content: center;
+    /* 水平軸の中央寄せ、だと思う */
+    align-items: center; 
+    margin-top: 20px;
+}
