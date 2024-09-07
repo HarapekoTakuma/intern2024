@@ -70,3 +70,263 @@ button {
     align-items: center; 
     margin-top: 20px;
 }
+
+
+/**
+  left: 230px
+  -> sidebar の230px左にずらす
+*/
+.main-content {
+    position: relative;
+    width: calc(100% -230px);
+    left: 230px;
+    transition: all 0.3s ease;
+}
+
+
+
+/** カスタムプロパティ定義 */
+:root {
+    --light: #f6f6f9;
+    --primary: #1976D2;
+    --light-primary: #cfe8ff;
+    --gray: #eee;
+    --dark-gray: #aaaaaa;
+    --dark: #363949;
+    --danger: #d32f2f;
+    --light-danger: #fecdd3;
+    --warning: #fbc02d;
+    --light-warning: #fff2c6;
+    --success: #388e3c;
+    --light-uccess: #bbf7d0;
+}
+
+/**
+* ユニバーサルセレクタ
+* font-familyもここでいいか？
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/**
+* rem 最上位(html)に定義された文字サイズをもとに大きさを指定
+* 親要素のサイズ指定は受けない
+*/
+.bx {
+    font-size: 1.7rem;
+}
+
+/**
+* リンクのアンスコ外す
+*/
+a{
+    text-decoration: none;
+}
+ 
+/**
+* リストの頭につく丸ぽちを消す
+*/
+li{
+    list-style: none;
+}
+
+/**
+* 右方向に文字表示が収まらなかったら消す
+*/
+html{
+    overflow-x: hidden;
+}
+
+body.dark {
+    --light : #181a1e;
+    --gray : #25252c;
+    --dark : #fbfbfb;
+}
+
+/**
+* この変数は最初に設定した変数が当たってます
+*/
+body {
+    background: var(--gray);
+    overflow-x: hidden;
+}
+
+/**
+* position: fixed:固定、動かさない。サイドメニューだから
+* top,left:0 画面左上から
+* background:背景色
+* width/height 200px/画面全域
+* z-index:並べたときに大きいほうが上位,2000以上のタグが重ならない限り前面で表示
+* scrollbar-width: none; 非表示
+* transition 引っ込めるときの速度
+*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--light);
+    width: 230px;
+    height: 100%;
+    z-index: 2000;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    transition: all 0.3s ease;
+}
+
+/**
+* 「.」でくっつけると両方を持っている場合に適用
+*/
+.sidebar.close {
+    width: 60px;
+}
+
+/**
+* 「.」でを話すと親要素を見ます .sidebar を親にもつ .logo に適用
+*  display: flex;
+*  ->flexboxで
+*  align-items: center;
+*  -> flexboxない中央配置
+*  color: var(--primary);
+*  ->青色っぽいのに変えて
+*  z-index: 500;
+*  -> 重ねの順序500より小さいものの上に表示
+*  padding-bottom: 20px;
+*  -> 20px下に空けます
+*  box-sizing: content-box;
+*  -> よくわからん
+*/
+.sidebar .logo {
+    font-size: 24px;
+    font-weight: 700;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    color: var(--primary);
+    z-index: 500;
+    padding-bottom: 20px;
+    box-sizing: content-box;
+}
+
+/**
+* sidebar配下のlogo配下のlogo-name配下のspanの文字を黒く！
+*/
+.sidebar .logo .logo-name span {
+    color: var(--dark);
+}
+
+/**
+  sidebar配下のlogo配下のbx, 持ってきたイメージに適用
+  min-width:
+   -> 最小値これより小さい幅にはならない、と思う
+  display: flex;
+   -> flexコンテナにして 
+  justify-content: center
+   -> flex コンテナ内は中央寄せ 
+*/
+.sidebar .logo .bx {
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    font-size: 2.2rem;
+}
+
+/**
+  sidebar配下のside-menuに適用
+  上を少し空けます
+*/
+.sidebar .side-menu {
+    width: 100%;
+    margin-top: 48px;
+}
+
+/**
+  sidebar配下のside-menu配下のliに適用
+  height: 48px;
+    -> 高さ48pxにして
+  background: transparent;
+    -> 透明色
+  margin-left: 6px;　
+    -> 左ちょっと空けます
+  border-radius: 48px 0 0 48px;
+    ->  左上 | 右上 | 右下 | 左下
+    ->  左上と右下を丸めます
+*/
+.sidebar .side-menu li {
+    height: 48%;
+    background: transparent;
+    margin-left: 6px;
+    border-radius: 48px 0 0 48px;
+    padding: 4px;
+}
+
+/**
+  li.active
+    -> 疑似要素、liの疑似要素ってなんだ？
+*/
+.sidebar .side-menu li.active {
+    background: var(--gray);
+    position: relative;
+}
+
+.sidebar .side-menu li.active::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: -40px;
+    right: 0;
+    box-shadow: 20px 20px 0 var(--gray);
+    z-index: -1;
+}
+
+.sidebar .side-menu li.active::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    bottom: -40px;
+    right: 0;
+    box-shadow: 20px -20px 0 var(--gray);
+    z-index: -1;
+}
+
+.sidebar .side-menu li a{
+    width: 100%;
+    height: 100%;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    font-size: 16px;
+    color: var(--dark);
+    white-space: nowrap;
+    overflow-x: hidden;
+    transition: alll 0.3s ease;
+}
+
+.sidebar .side-menu li.active a {
+    color: var(--success);
+}
+
+.sidebar.close .side-menu li a {
+    width: calc(48px - (4px * 2));
+}
+
+.sidebar .side-menu li a .bx {
+    min-width: calc(60px - ((4px + 6px) * 2));
+    display: flex;
+    font-size: 1.6rem;
+    justify-content: center;
+}
+
+.sidebar .side-menu li a.logout{
+    color: var(--danger);
+}
+
+

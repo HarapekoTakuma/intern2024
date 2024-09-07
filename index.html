@@ -3,28 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="oneHnudredOnly.css">
     <title>Cracker-金庫破り</title>
 </head>
 <body>
-    <div class="label-container">
-        <h1>One Hundred Only</h1>
-        <br>
-        <h2>3つ選んで足すと100になる数字を選びましょう。</h1>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="" class="logo">
+           <i class='bx bx-code-alt'></i>
+           <div class="logo-name"><span>test</span>Prog</div>
+        </a>
+        <ul class="side-menu">
+            <li><a href="#"><i class='bx bxs-dashboard'></i>はじめに</a></li>
+            <li class="active"><a href="#"><i class='bx bx-store-alt'></i>Scratch</a></li>
+            <li><a href="#"><i class='bx bx-analyse'></i>書いてみよう</a></li>
+            <li><a href="#"><i class='bx bx-message-square-dots'></i>サンプル</a></li>
+            <li><a href="#"><i class='bx bx-group'></i>Users</a></li>
+            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    logout
+                </a>
+            </li>
+        </ul>
     </div>
+    <!-- end of sidebar -->
 
-    <div class="cracker-container">
-        <div id="number-grid" class="grid">
-            <!-- この中の表示はScriptでゴリゴリ書く -->
+    <div class="main-content">
+        <div class="scratchh"></div>
+        <div class="forif"></div>
+        <div class="pazzule"></div>
+
+        <div class="label-container">
+            <h1>One Hundred Only</h1>
+            <br>
+            <h2>3つ選んで足すと100になる数字を選びましょう。</h1>
         </div>
+        
+        <div class="cracker-container">
+            <div id="number-grid" class="grid">
+                <!-- この中の表示はScriptでゴリゴリ書く -->
+            </div>
+        </div>
+    
+        <div class="button-container">
+            <button id="anser-btn">計算してみよう！</button>
+            <button id="new-btn">数字を変えてみよう！</button>
+        </div>
+    
+    
+        <script src="oneHnudredOnly.js"></script>
     </div>
 
-    <div class="button-container">
-        <button id="anser-btn">計算してみよう！</button>
-        <button id="new-btn">数字を変えてみよう！</button>
-    </div>
-
-
-    <script src="oneHnudredOnly.js"></script>
 </body>
 </html>
