@@ -20,8 +20,9 @@
             <li><a href="#"><i class='bx bx-analyse'></i>scratchの紹介</a></li>
             <li><a href="#"><i class='bx bx-message-square-dots'></i>命令文</a></li>
             <li><a href="#"><i class='bx bx-group'></i>お試しアプリ</a></li>
-            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
-        </ul>
+            <li> <a onclick="loadContent('a.html')">Page 3</a></ul>
+            <li> <a onclick="loadContent('b.html')">Page 3</a></ul>
+            </li>
         <ul class="side-menu">
             <li>
                 <a href="#" class="logout">
@@ -32,11 +33,8 @@
         </ul>
     </div>
     <!-- end of sidebar -->
-
     <div class="main-content">
-        <div class="scratch"></div>
-        <div class="forif"></div>
-        <div class="pazzule"></div>
+        <div class="content" id="content"></div>
 
         <div class="label-container">
             <h1>One Hundred Only</h1>
@@ -56,6 +54,7 @@
         </div>
     
     
+        <script src="index.js"></script>
         <script src="oneHnudredOnly.js"></script>
     </div>
 
